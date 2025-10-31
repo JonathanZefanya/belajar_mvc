@@ -1,0 +1,18 @@
+# Redirect all requests to index.php
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Handle front controller
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+</IfModule>
+
+# Disable directory browsing
+Options -Indexes
+
+# Prevent access to sensitive files
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

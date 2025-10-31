@@ -1,0 +1,45 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE Files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Upload Files (user uploaded images)
+public/assets/uploads/*
+!public/assets/uploads/.gitkeep
+
+# Configuration Files (sensitive data)
+config/config.php.local
+
+# Log Files
+*.log
+error_log
+debug.log
+
+# Temporary Files
+*.tmp
+*.temp
+*.cache
+
+# Backup Files
+*.bak
+*.backup
+*.sql.gz
+
+# Session Files
+sessions/*
+
+# Vendor (if using Composer)
+vendor/
+
+# Node Modules (if using npm)
+node_modules/
+
+# Environment Files
+.env
+.env.local
