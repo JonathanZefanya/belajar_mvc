@@ -83,9 +83,12 @@ class User {
      */
     public function authenticate($identifier, $password) {
         // Cek apakah identifier adalah email atau username
-        $query = "SELECT * FROM users WHERE username = :identifier OR email = :identifier LIMIT 1";
+        $query = "SELECT * FROM users WHERE username = :identifier1 OR email = :identifier2 LIMIT 1";
         
-        $user = $this->db->single($query, ['identifier' => $identifier]);
+        $user = $this->db->single($query, [
+            'identifier1' => $identifier,
+            'identifier2' => $identifier
+        ]);
 
         // Jika user ditemukan, verify password
         if ($user && password_verify($password, $user['password'])) {

@@ -88,7 +88,7 @@ Untuk Windows (XAMPP), biasanya sudah memiliki permission yang sesuai.
 
 Buka browser dan akses:
 ```
-http://localhost/praktikum/public
+http://localhost/praktikum/mvc/public
 ```
 
 atau jika menggunakan virtual host:

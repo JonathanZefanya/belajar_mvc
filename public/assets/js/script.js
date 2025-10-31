@@ -254,4 +254,4 @@ if ('serviceWorker' in navigator) {
 
 // Log app info
 console.log('%c🎓 University Management System', 'font-size: 20px; font-weight: bold; color: #4f46e5;');
-console.log('%cBuilt with PHP Native MVC + Bootstrap', 'font-size: 12px; color: #6b7280;');
+console.log('%cPraktikum Web 5 + Bootstrap', 'font-size: 12px; color: #6b7280;');

@@ -31,19 +31,19 @@ class University {
                   LEFT JOIN users us ON u.created_by = us.id";
         $params = [];
 
-        // Add search condition
+        // Add search condition - use separate parameters for each LIKE
         if ($search) {
-            $query .= " WHERE u.name LIKE :search OR u.address LIKE :search OR u.description LIKE :search";
-            $params['search'] = "%$search%";
+            $query .= " WHERE u.name LIKE :search1 OR u.address LIKE :search2 OR u.description LIKE :search3";
+            $params['search1'] = "%$search%";
+            $params['search2'] = "%$search%";
+            $params['search3'] = "%$search%";
         }
 
         $query .= " ORDER BY u.created_at DESC";
 
-        // Add pagination
+        // Add pagination - use string interpolation for LIMIT/OFFSET to avoid PDO binding issues
         if ($limit) {
-            $query .= " LIMIT :limit OFFSET :offset";
-            $params['limit'] = $limit;
-            $params['offset'] = $offset;
+            $query .= " LIMIT " . (int)$limit . " OFFSET " . (int)$offset;
         }
 
         return $this->db->all($query, $params);
@@ -158,12 +158,14 @@ class University {
         $params = [];
 
         if ($search) {
-            $query .= " WHERE name LIKE :search OR address LIKE :search OR description LIKE :search";
-            $params['search'] = "%$search%";
+            $query .= " WHERE name LIKE :search1 OR address LIKE :search2 OR description LIKE :search3";
+            $params['search1'] = "%$search%";
+            $params['search2'] = "%$search%";
+            $params['search3'] = "%$search%";
         }
 
         $result = $this->db->single($query, $params);
-        return $result['count'];
+        return $result ? (int)$result['count'] : 0;
     }
 
     /**
@@ -230,15 +232,16 @@ class University {
         $query = "SELECT u.*, us.username as creator_name 
                   FROM universities u 
                   LEFT JOIN users us ON u.created_by = us.id 
-                  WHERE u.name LIKE :keyword 
-                     OR u.address LIKE :keyword 
-                     OR u.description LIKE :keyword 
+                  WHERE u.name LIKE :keyword1 
+                     OR u.address LIKE :keyword2 
+                     OR u.description LIKE :keyword3 
                   ORDER BY u.name ASC 
-                  LIMIT :limit";
+                  LIMIT " . (int)$limit;
 
         $params = [
-            'keyword' => "%$keyword%",
-            'limit' => $limit
+            'keyword1' => "%$keyword%",
+            'keyword2' => "%$keyword%",
+            'keyword3' => "%$keyword%"
         ];
 
         return $this->db->all($query, $params);

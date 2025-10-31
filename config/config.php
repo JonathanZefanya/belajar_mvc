@@ -13,7 +13,7 @@ define('DB_USER', 'root');           // Username database
 define('DB_PASS', 'root');               // Password database (kosong untuk XAMPP default)
 
 // Konstanta URL - Base URL aplikasi untuk routing
-define('BASE_URL', 'http://localhost/praktikum/public');
+define('BASE_URL', 'http://localhost/praktikum/mvc/public');
 
 // Konstanta Path - Path direktori untuk kebutuhan file upload dan include
 define('ROOT_PATH', dirname(__DIR__));

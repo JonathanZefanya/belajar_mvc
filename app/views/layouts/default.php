@@ -102,7 +102,7 @@
         <div class="container text-center">
             <p class="text-muted mb-0">
                 &copy; <?= date('Y') ?> University Management System. 
-                <span class="text-primary">Built with PHP Native MVC</span>
+                <span class="text-primary">Praktikum Web 5</span>
             </p>
         </div>
     </footer>

@@ -25,7 +25,7 @@ define('DB_PASS', 'password_anda'); // Ubah sesuai password MySQL
 ### Langkah 5: Akses Aplikasi
 Buka browser dan akses:
 ```
-http://localhost/praktikum/public
+http://localhost/praktikum/mvc/public
 ```
 
 ### Langkah 6: Login
