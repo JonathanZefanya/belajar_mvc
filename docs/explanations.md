@@ -1,4 +1,4 @@
-# Penjelasan Detail Kode - University Management System
+# Penjelasan - University Management System
 
 Dokumen ini menjelaskan fungsi dan baris-baris kode penting dalam aplikasi.
 
